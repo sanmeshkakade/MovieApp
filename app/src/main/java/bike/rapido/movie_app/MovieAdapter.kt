@@ -1,5 +1,6 @@
 package bike.rapido.movie_app
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ class MovieAdapter(private val movies: List<Movie>)
 
         fun bind(movie: Movie) {
             movieTextView.text = movie.title
+            movieTextView.paintFlags = Paint.UNDERLINE_TEXT_FLAG
             movieDiscription.text = movie.overview
         }
     }
