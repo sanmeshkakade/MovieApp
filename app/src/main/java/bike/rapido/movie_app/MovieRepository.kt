@@ -30,7 +30,7 @@ object MovieRepository {
                         val responseBody = response.body()
 
                         if (responseBody != null) {
-                            Log.e("Repository", "Movies: ${responseBody.movies}")
+                            Log.d("Repository", "Movies: ${responseBody.movies}")
                             onSuccess.invoke(responseBody.movies)
                         } else {
                             Log.e("Repository", "Failed to get response")

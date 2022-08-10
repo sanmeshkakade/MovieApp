@@ -11,8 +11,4 @@ interface Api {
         @Query("api_key") apiKey: String = "66dda80468d72616f665696c142245bd",
     ) : Call<MovieResponse>
 
-//    @GET("/movie/trending")
-//    fun getTrendingMovies(
-//        @Query("api_key") apiKey: String = "66dda80468d72616f665696c142245bd",
-//    ) : Call<MovieResponse>
 }
