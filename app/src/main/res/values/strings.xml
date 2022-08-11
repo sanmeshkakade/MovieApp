@@ -2,4 +2,5 @@
     <string name="app_name">MovieApp</string>
     <string name="get_movies">Get Movies</string>
     <string name="app_name_string">Movie Fetcher</string>
+    <string name="moviePhoto">MoviePhoto</string>
 </resources>

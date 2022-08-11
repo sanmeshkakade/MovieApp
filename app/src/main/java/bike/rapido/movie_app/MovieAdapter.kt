@@ -1,23 +1,36 @@
 package bike.rapido.movie_app
 
+import android.annotation.SuppressLint
+import android.content.res.Resources
 import android.graphics.Paint
+import android.provider.Settings.Global.getString
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 class MovieAdapter(private val movies: List<Movie>)
     : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>()
 {
     class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val movieTextView: TextView = itemView.findViewById(R.id.movie_title)
-        private val movieDiscription: TextView = itemView.findViewById(R.id.movie_description)
+        private val movieDescription: TextView = itemView.findViewById(R.id.movie_description)
+        private val moviePoster: ImageView = itemView.findViewById(R.id.movie_image);
 
+        @SuppressLint("PrivateResource")
         fun bind(movie: Movie) {
             movieTextView.text = movie.title
             movieTextView.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-            movieDiscription.text = movie.overview
+            movieDescription.text = movie.overview
+            val posterUrl:String = "https://image.tmdb.org/t/p/w500/${movie.poster}"
+            Picasso.get().load(posterUrl)
+                .placeholder(androidx.core.R.drawable.notification_bg)
+                .error(com.google.android.material.R.drawable.mtrl_ic_error)
+                .into(moviePoster);
         }
     }
 
